@@ -22,6 +22,7 @@ namespace tomcMatijaSpremanjePrikazFiltriranjeXml
         {
             var listaUcenika = from ucenik in XElement.Load("D:/Documents/xmlDokument/Ucenici.xml").Elements("Ucenik").Attributes()
                        select ucenik;
+            richTextBox1.Clear();
             foreach (var item in listaUcenika)
             {
                 richTextBox1.Text += item.ToString() + " \n";
@@ -30,25 +31,25 @@ namespace tomcMatijaSpremanjePrikazFiltriranjeXml
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-            var listaUcenika = from ucenik in XElement.Load("D:/Documents/xmlDokument/UceniciFiltrirani.xml").Elements("Ucenik").Attributes()
-                               select ucenik;
-            foreach (var item in listaUcenika)
-            {
-                richTextBox1.Text += item.ToString() + " \n";
-            }
-            //FormaXMLTransformerPocetna frm = new FormaXMLTransformerPocetna();
-            //this.Hide();
-            //DialogResult rez = frm.ShowDialog();
-            //this.Close();
+            FormaXMLTransformerPocetna frm = new FormaXMLTransformerPocetna();
+            this.Hide();
+            DialogResult rez = frm.ShowDialog();
+            this.Close();
         }
 
         private void btnFiltriraj_Click(object sender, EventArgs e)
         {
-            
-            
-            FormaXMLTransformerFiltriranje frm = new FormaXMLTransformerFiltriranje();
             this.Hide();
-            DialogResult rez = frm.ShowDialog();
+            FormaXMLTransformerFiltriranje frm = new FormaXMLTransformerFiltriranje();
+            frm.ShowDialog();
+            this.Show();
+            var listaUcenika = from ucenik in XElement.Load("D:/Documents/xmlDokument/UceniciFiltrirani.xml").Elements("Ucenik").Attributes()
+                               select ucenik;
+            richTextBox1.Clear();
+            foreach (var item in listaUcenika)
+            {
+                richTextBox1.Text += item.ToString() + " \n";
+            }
         }
     }
 }

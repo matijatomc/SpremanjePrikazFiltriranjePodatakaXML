@@ -48,6 +48,7 @@
             this.btnZavrsi.TabIndex = 19;
             this.btnZavrsi.Text = "Završi";
             this.btnZavrsi.UseVisualStyleBackColor = true;
+            this.btnZavrsi.Click += new System.EventHandler(this.btnZavrsi_Click);
             // 
             // btnFiltriraj
             // 

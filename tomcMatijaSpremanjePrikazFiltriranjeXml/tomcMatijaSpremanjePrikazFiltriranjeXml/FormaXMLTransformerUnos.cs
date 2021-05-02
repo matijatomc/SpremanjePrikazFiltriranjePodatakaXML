@@ -24,7 +24,7 @@ namespace tomcMatijaSpremanjePrikazFiltriranjeXml
         {
             if (string.IsNullOrEmpty(txtIme.Text) || string.IsNullOrEmpty(txtPrezime.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(cmbRazred.Text))
             {
-                MessageBox.Show("Pogrešno ste upisali podatke", "Greška");
+                MessageBox.Show("Niste unijeli sve podatke", "Greška");
                 return;
             }
 
